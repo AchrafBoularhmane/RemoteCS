@@ -367,6 +367,7 @@ function gotData(data){
 
     
     newdiv1.innerHTML += "<a href=''><h2>"  +NameCoffee+ "</h2></a><br>";
+    newdiv7.innerHTML +="<button type='submit'>/ 10</button>";
     newdiv1.innerHTML += "<a class='GML' href=''>Google Maps:" +GML+ "</a>";
     newdiv1.innerHTML += "<p class='Price'>Price: <span class='PriceValue'>" +Price+ "</span></p>";
     newdiv1.innerHTML += "<p class='NSarea'>No-smoking-area: <span  class='NsaValue'>" +NSarea+ "</span></p>";
@@ -375,7 +376,6 @@ function gotData(data){
 
     newdiv5.innerHTML +="<span style='margin-right: 5px; color: green;'><i class='fa fa-caret-up'>0</span></i>";
     newdiv6.innerHTML +="<span style='margin-right: 5px; color: red;'><i class='fa fa-caret-down'>0</span></i>";
-    newdiv7.innerHTML +="<button type='submit'>/ 10</button>";
 
 
     
