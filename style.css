@@ -44,7 +44,9 @@ body{
     padding: 3px;
     letter-spacing: 1px;
     text-transform: capitalize;
-    
+    position: absolute;
+    left:46%;
+    top:28.5%;
 }
 .select-city:hover{
 background: #d11415;
