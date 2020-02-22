@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/style.css">
+    <script src="https://code.jquery.com/jquery-3.4.1.js"></script>
+      
+
+    <title>Best Coffee Shop</title>
+</head>
+<body>
+    <div class="All">
+
+<!----------------------------------------------HEADER INFO ( title, filter,addnewbtn)-------------------------------------------------->
+
+     <div class="header">
+         <h1 class="title-page">Best Coffee Shops <br> <span> In </span> </h1>
+         <div class="city">
+               <select name="city" class="select-city" disabled>
+                   <option type="text" value="Casablanca">Casablanca</option>
+                </select>
+         </div>
+     </div>
+                                                 <!--FILTER-->
+         <div class="filter">
+           <h2 class="filter-title">Filter by : </h2>
+         </div>
+          <!--<div class="filter">
+                   <select id="filterAll" class="select-filter">
+                         <option  disabled selected hidden ></option>
+                         <option  value="Price" class="filterOption Price">Price</option>
+                         <option  value="Sockets" class="filterOption Sockets">Sockets</option>
+                         <option  value="No smoking area" class="filterOption No-Smoking-Area">No smoking area</option>
+
+                    </select>
+           </div>  -->
+         <div class="filter">
+                <select id="PriceValue" class="select-filter">
+                    <option  disabled selected hidden >Price</option>
+                    <option  value="Low" class="filterOption">Low</option>
+                    <option  value="Average" class="filterOption">Average</option>
+                    <option  value="High" class="filterOption">High</option>
+         </select>
+         </div>
+           
+         <div class="filter">
+            <select id="Sockets" class="select-filter">
+                <option  disabled selected hidden>Sockets</option>
+                <option  value="Low" class="filterOption">Low</option>
+                <option  value="Average" class="filterOption">Average</option>
+                <option  value="High" class="filterOption">High</option>
+            </select>
+         </div>
+
+         <div class="filter">
+            <select id="NoSmokingArea" class="select-filter">
+                <option  disabled selected hidden>No-smoking area</option>
+                <option  value="Yes" class="filterOption">Yes</option>
+                <option  value="No" class="filterOption">No</option>
+            </select>
+         </div>
+
+         <div class="filter">
+                <div id="FilterByPlus"><a href=""  class="FilterByPlus"><i class="fa fa-plus-circle"></i></a></div>
+        </div>
+
+
+         <div class="filter">
+             <input type="submit" value="Add New" id="AddNewCSbtn" >
+         </div>         
+
+<!--------------------------------------ADD NEW COFEE SHOP (AddNewForm+Verification)----------------------------------------------->
+        <div class="AddNew-form-modal">
+        <div class="AddNew-form">
+        <h1 class="Add-New-title">Add a new coffee shop</h1>
+        <a  class="close-form" href="">X</a>
+        <form class="" id="AddNewCoffeeShopForm">
+            <div class="Add">
+            <label for="coffeeName" class=""> Coffee name: </label>
+            <input type="text" value="" id="coffee-name-data" >
+            <div class="">
+                <label for="city">City: </label>
+                <select  class="" >
+                   <option value="Casablanca" class="city-data">Casablanca</option>
+                   <option value="Rabat" class="city-data">Rabat</option>
+                   <option value="Marrakech" class="city-data">Marrakech</option>
+                   <option value="Agadir" class="city-data">Agadir</option>
+                   <option value="Fes" class="city-data">Fes</option>
+                </select>
+            </div>
+            <div class="Add MapsLink">
+                 <label for="G-M-L" class=""> Google maps link: </label>
+                  <input type="text" class="G-M-Link-data" value="">
+            </div>
+            <div class="Add Price">
+                  <label for="price" class="">Price: </label>
+                  <span>Low</span><input type="checkbox" id="lowPrice" value="Low" class="priceForm">
+                  <span>Average</span><input type="checkbox" id="averagePrice" value="Average" class="priceForm">
+                  <span>High</span><input type="checkbox" id="highPrice" value="High" class="priceForm">
+            </div>
+            <div class="Add SmokingArea">
+                 <label for ="N-S-A" class="">No-smoking area: </label>
+                 <span>Yes</span><input type="checkbox" class="NsArea" value="Yes">
+                 <span>No</span><input type="checkbox" class="NsArea" value="No">
+            </div>
+            <div class="Add Sockets">
+                 <label for="sockets" class=""> Sockets: </label> 
+                 <span>Low</span><input type="checkbox" id="lowSocket" value="Low" class="socketForm">
+                 <span>Average</span><input type="checkbox" id="averageSocket" value="Average" class="socketForm">
+                 <span>High</span><input type="checkbox" id="highSocket" value="High" class="socketForm">
+            </div>
+            <div class="Add Noise">
+                <label for="noise" class=""> Noise: </label> 
+                <span>Low</span><input type="checkbox" id="lowNoise" value="Low" class="noiseForm">
+                <span>Average</span><input type="checkbox" id="averageNoise" value="Average" class="noiseForm">
+                <span>High</span><input type="checkbox" id="highNoise" value="High" class="noiseForm">
+           </div>
+            <div class="Add Yourname">
+                <label for="name-user">Your name: </label> 
+                <input type="text" id="name-data">
+            </div>
+            <div class="Add YourMail">
+                <label for="mail-user">Your mail:</label> 
+                <input type="text" id="email-data">
+            </div>
+            <div class="confirm">
+                <input type="submit" value="Confirm" id="confirm">
+            </div>
+        </div>
+        </form>
+    </div>
+</div>
+                                        <!--Confirmation-Code-->
+  
+    
+
+
+
+<!--------------------------------------------COFFEE SHOP ADDED BY USER------------------------------------------------->
+<!--<div id="Addcoffee-shop">
+    <div class="CS">
+    <div class="Coffee-shop-name"><a href="" ><h2 id="name"></h2></a></div>
+    <div class="googleMapsLink"><a href="" id="GMLink"><p>Google Maps Link</p></a></div>
+    <div class="note"><button type="submit">/ 10</button></div>
+    <div class="display price"><p>Price: <span id="price"></span> </p></div>
+    <div class="display non-smoking-area"><p>No-smoking-area: <span id="NSArea"></span></p></div>
+    <div class="display socket"><p>Sockets: <span id="Socket"></span> </p></div>
+    <div class="display noise"><p>Noise: <span id="Noise"></span> </p></div>
+
+    <div class="vote">
+        <div class="voting upvoting">
+            <div class="up-vote-logo"><span style="margin-right: 5px; color: green;">0</span><i class="fa fa-caret-up" aria-hidden="true"></i></div>
+        </div>
+        <div class="voting downvoting">
+            <div class="down-vote-logo"><span style="margin-right: 5px; color: red;">0</span><i class="fa fa-caret-down" aria-hidden="true"></i></div>
+        </div>
+    </div>
+</div>
+ </div>
+</div>
+-->
+
+ <div id="All">
+
+</div>
+ 
+
+<!--------------------------------------------VOTE AND COMMENT----------------------------------------------------------->    
+<script src="https://www.gstatic.com/firebasejs/7.8.0/firebase-app.js"></script>
+<script src="https://www.gstatic.com/firebasejs/7.8.0/firebase-analytics.js"></script>
+<script src="https://www.gstatic.com/firebasejs/7.8.0/firebase-database.js"></script>
+<script src="https://www.gstatic.com/firebasejs/7.8.0/firebase-auth.js"></script>
+<script src="https://www.gstatic.com/firebasejs/7.8.0/firebase-firestore.js"></script>
+<script src="https://code.jquery.com/jquery-3.4.1.js"></script>
+<script src="/script.js"></script>
+</div>
+</body>
+</html>
