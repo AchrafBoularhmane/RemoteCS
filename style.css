@@ -21,7 +21,7 @@ body{
 }
 /*-----------------------------------------------------HEADER INFO-------------------------------------------------*/
 
-.title-page{
+.title-page,.title-page1{
     font-family: "Playfair Display",serif;
     text-transform: capitalize;
     color: #d11415;
@@ -33,7 +33,14 @@ body{
 .title-page span{
   margin-right: 190px;
 }
+.city{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
 .select-city{
+    margin-left: 10px;
+    margin-top: 15px;
     cursor: pointer;
     border: 2px solid #d11415;
     border-radius: 3px;
@@ -43,10 +50,7 @@ body{
     color: #d11415;
     padding: 3px;
     letter-spacing: 1px;
-    text-transform: capitalize;
-    position: absolute;
-    left:46%;
-    top:28.5%;
+    text-transform: capitalize; 
 }
 .select-city:hover{
 background: #d11415;
@@ -85,9 +89,8 @@ border-radius: 3px;
     height: 25px;
     font-size: 15px;
     font-family: 'Squada One', cursive;
-    position: absolute;
-    top:299px;
 }
+
 #AddNewCSbtn{
    position: absolute;
    right: 80px;
@@ -106,17 +109,9 @@ border-radius: 3px;
     color: #d11415;
     font-weight: 700;
 }
-#FilterByPlus a i{
-    color: #d11415;
-    font-size: 16px;
-    cursor: pointer;
-    position: absolute;
-    left: 315px;
-    top: 304px;
-}
 
 #Sockets, #NoSmokingArea {
-    visibility: hidden;
+    visibility: visible;
 }
 #PriceValue.active, #Sockets.active, #NoSmokingArea.active, #FilterByPlus.active {
     visibility: visible;
