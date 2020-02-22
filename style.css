@@ -137,16 +137,6 @@ border-radius: 3px;
 .CS a h2:hover{
     color: #d11415;   
 }
-.CS p{
-    font-size: 14px;
-    color: #262626;
-    font-family: 'Inconsolata', monospace;
-    font-weight: 550;
-    width: 30%;
-}
-.CS a{
-    text-decoration: none;
-}
 .CS a h2{
     font-family: "Playfair Display",serif;
     text-decoration: none;
@@ -155,8 +145,18 @@ border-radius: 3px;
     font-size: 2.2em;
     margin-bottom: 15px;
     font-weight: bolder;
-    width: 40%;
+    width: 70%;
 }
+.CS p{
+    font-size: 14px;
+    color: #262626;
+    font-family: 'Inconsolata', monospace;
+    font-weight: 550;
+}
+.CS a{
+    text-decoration: none;
+}
+
 .red{
     color:"red";
 }

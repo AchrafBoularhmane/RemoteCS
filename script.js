@@ -337,60 +337,67 @@ function gotData(data){
         var k = keys[i];
         var  NameCoffee = data[k].NameCoffee;
         var  GML = data[k].GoogleMapLink;
-        var  NSarea = data[k].NoSmoking;
-        var  Noise = data[k].Noise;
-        var  Price = data[k].Price;
-        var  Sockets = data[k].Price;
+        var  NSareaValue = data[k].NoSmoking;
+        var  NoiseValue = data[k].Noise;
+        var  PriceValue = data[k].Price;
+        var  SocketsValue = data[k].Price;
 
-    var newdiv = document.createElement("div") ;
-    var newdiv1 = document.createElement("div") ;
-    var newdiv2=document.createElement("div");
-    var newdiv3=document.createElement("div");
-    var newdiv4=document.createElement("div");
-    var newdiv5=document.createElement("div");
-    var newdiv6=document.createElement("div");
-    var newdiv7=document.createElement("div");
+    var AddcoffeeShop = document.createElement("div") ;
+    var CS = document.createElement("div") ;
+    var vote=document.createElement("div");
+    var upvoting=document.createElement("div");
+    var uplogo=document.createElement("div");
+    var downvoting=document.createElement("div");
+    var downlogo=document.createElement("div");
+    var note=document.createElement("div");
+    var GMLink=document.createElement("div");
+    var Link=document.createElement("a");
+    var Price = document.createElement("div")
+    var Sockets = document.createElement("div")
+    var NSarea = document.createElement("div")
+    var Noise = document.createElement("div")
 
+    AddcoffeeShop.setAttribute("id", "Addcoffee-shop");
+    CS.setAttribute("class", "CS");
+    vote.setAttribute("class","vote");
+    upvoting.setAttribute("class","upvoting");
+    uplogo.setAttribute("class","up-vote-logo");
+    downvoting.setAttribute("class","downvoting");
+    downlogo.setAttribute("class","down-vote-logo");
+    note.setAttribute("class","note");
+    GMLink.setAttribute("class","GMLink");
+    Link.setAttribute("href",GML);
+    Link.setAttribute("target","_blank");
+    Price.setAttribute("class","Price");
+    Sockets.setAttribute("class","Sockets");
+    NSarea.setAttribute("class","NSarea");
+    Noise.setAttribute("class","Noise");
 
-
-
-    newdiv.setAttribute("id", "Addcoffee-shop");
-    newdiv1.setAttribute("class", "CS");
-    newdiv2.setAttribute("class","vote")
-    newdiv3.setAttribute("class","upvoting")
-    newdiv5.setAttribute("class","up-vote-logo")
-    newdiv4.setAttribute("class","downvoting")
-    newdiv6.setAttribute("class","down-vote-logo")
-    newdiv7.setAttribute("class","note")
-
-
-
+    Price.innerHTML += "<p class='Price'>Price: <span class='PriceValue'>" +PriceValue+ "</span></p>";
+    Sockets.innerHTML += "<p class='Socket'>Sockets: <span  class='SocketValue'>" +SocketsValue+ "</span></p>";
+    NSarea.innerHTML += "<p class='NSarea'>No-smoking-area: <span  class='NsaValue'>" +NSareaValue+ "</span></p>";
+    Noise.innerHTML += "<p class='Noise'>Noise: <span  class='NoiseValue'>" +NoiseValue+ "</span></p>";
+    Link.innerHTML+="Link to Maps";
+    CS.innerHTML += "<a href=''><h2>"  +NameCoffee+ "</h2></a><br>";
+    note.innerHTML +="<button type='submit'>/ 10</button>";
+    uplogo.innerHTML +="<span style='margin-right: 5px; color: green;'><i class='fa fa-caret-up'>0</span></i>";
+    downvoting.innerHTML +="<span style='margin-right: 5px; color: red;'><i class='fa fa-caret-down'>0</span></i>";
     
-    newdiv1.innerHTML += "<a href=''><h2>"  +NameCoffee+ "</h2></a><br>";
-    newdiv7.innerHTML +="<button type='submit'>/ 10</button>";
-    newdiv1.innerHTML += "<a class='GML' href=''>Google Maps:" +GML+ "</a>";
-    newdiv1.innerHTML += "<p class='Price'>Price: <span class='PriceValue'>" +Price+ "</span></p>";
-    newdiv1.innerHTML += "<p class='NSarea'>No-smoking-area: <span  class='NsaValue'>" +NSarea+ "</span></p>";
-    newdiv1.innerHTML += "<p class='Socket'>Sockets: <span  class='SocketValue'>" +Sockets+ "</span></p>";
-    newdiv1.innerHTML += "<p class='Noise'>Noise: <span  class='NoiseValue'>" +Noise+ "</span></p>";
+    $('#All').append($(AddcoffeeShop))
+    $(CS).append($(note))
+    $(CS).append($(GMLink))
+    $(GMLink).append($(Link))
+    $(CS).append($(Price))
+    $(CS).append($(Sockets))
+    $(CS).append($(NSarea))
+    $(CS).append($(Noise))
 
-    newdiv5.innerHTML +="<span style='margin-right: 5px; color: green;'><i class='fa fa-caret-up'>0</span></i>";
-    newdiv6.innerHTML +="<span style='margin-right: 5px; color: red;'><i class='fa fa-caret-down'>0</span></i>";
-
-
-    
-
-    $('#All').append($(newdiv))
-    $(newdiv).append($(newdiv1))
-    $(newdiv1).append($(newdiv2))
-    $(newdiv1).append($(newdiv7))
-    $(newdiv2).append($(newdiv3))
-    $(newdiv2).append($(newdiv4))
-    $(newdiv3).append($(newdiv5))
-    $(newdiv4).append($(newdiv6))
-
-
-
+    $(AddcoffeeShop).append($(CS))
+    $(CS).append($(vote))
+    $(vote).append($(upvoting))
+    $(vote).append($(downvoting))
+    $(upvoting).append($(uplogo))
+    $(downvoting).append($(downlogo))
 
     var PriceValue = document.querySelectorAll(".PriceValue");
     var SocketValue = document.querySelectorAll(".SocketValue");
