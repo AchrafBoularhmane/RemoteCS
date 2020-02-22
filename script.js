@@ -344,6 +344,8 @@ function gotData(data){
 
     var AddcoffeeShop = document.createElement("div") ;
     var CS = document.createElement("div") ;
+    var CSname= document.createElement("div");
+    var CSnameNote = document.createElement("div");
     var vote=document.createElement("div");
     var upvoting=document.createElement("div");
     var uplogo=document.createElement("div");
@@ -360,9 +362,9 @@ function gotData(data){
     AddcoffeeShop.setAttribute("id", "Addcoffee-shop");
     CS.setAttribute("class", "CS");
     vote.setAttribute("class","vote");
-    upvoting.setAttribute("class","upvoting");
+    upvoting.setAttribute("class","upvoting display");
     uplogo.setAttribute("class","up-vote-logo");
-    downvoting.setAttribute("class","downvoting");
+    downvoting.setAttribute("class","downvoting display");
     downlogo.setAttribute("class","down-vote-logo");
     note.setAttribute("class","note");
     GMLink.setAttribute("class","GMLink");
@@ -372,19 +374,24 @@ function gotData(data){
     Sockets.setAttribute("class","Sockets");
     NSarea.setAttribute("class","NSarea");
     Noise.setAttribute("class","Noise");
+    CSnameNote.setAttribute("class", "CSnameNote")
+    CSname.setAttribute("class", "CSname")
+
 
     Price.innerHTML += "<p class='Price'>Price: <span class='PriceValue'>" +PriceValue+ "</span></p>";
     Sockets.innerHTML += "<p class='Socket'>Sockets: <span  class='SocketValue'>" +SocketsValue+ "</span></p>";
-    NSarea.innerHTML += "<p class='NSarea'>No-smoking-area: <span  class='NsaValue'>" +NSareaValue+ "</span></p>";
+    NSarea.innerHTML += "<p class='NSarea'>Non-smoking-area: <span  class='NsaValue'>" +NSareaValue+ "</span></p>";
     Noise.innerHTML += "<p class='Noise'>Noise: <span  class='NoiseValue'>" +NoiseValue+ "</span></p>";
     Link.innerHTML+="Link to Maps";
-    CS.innerHTML += "<a href=''><h2>"  +NameCoffee+ "</h2></a><br>";
+    CSname.innerHTML += "<a href=''><h2>"  +NameCoffee+ "</h2></a><br>";
     note.innerHTML +="<button type='submit'>/ 10</button>";
-    uplogo.innerHTML +="<span style='margin-right: 5px; color: green;'><i class='fa fa-caret-up'>0</span></i>";
-    downvoting.innerHTML +="<span style='margin-right: 5px; color: red;'><i class='fa fa-caret-down'>0</span></i>";
+    uplogo.innerHTML +="<span style='margin-right: 5px; color: green;'><i class='fa fa-caret-up'> 0</span></i>";
+    downvoting.innerHTML +="<span style='margin-right: 5px; color: red;'><i class='fa fa-caret-down'> 0</span></i>";
     
     $('#All').append($(AddcoffeeShop))
-    $(CS).append($(note))
+    $(CS).append($(CSnameNote))
+    $(CSnameNote.append(CSname))
+    $(CSnameNote.append(note))
     $(CS).append($(GMLink))
     $(GMLink).append($(Link))
     $(CS).append($(Price))

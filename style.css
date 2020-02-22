@@ -39,7 +39,6 @@ body{
     align-items: center;
 }
 .select-city{
-    margin-left: 10px;
     margin-top: 15px;
     cursor: pointer;
     border: 2px solid #d11415;
@@ -92,9 +91,6 @@ border-radius: 3px;
 }
 
 #AddNewCSbtn{
-   position: absolute;
-   right: 80px;
-   top:295px;
    border: none;
    border-radius: 3px;
    background: #111010;
@@ -102,8 +98,11 @@ border-radius: 3px;
    font-family: 'Squada One', cursive;
    font-weight: lighter;
    width: 85px;
-   padding: 2.5px;
+   padding: 0.5px;
    cursor: pointer;
+   position: absolute;
+   right: 80px;
+   
 }
 #AddNewCSbtn:hover{
     color: #d11415;
@@ -122,6 +121,7 @@ border-radius: 3px;
  margin-left: 21.1%;
  border-left: 1px solid #a3a3a3;
  padding: 25px 25px;
+ padding-bottom: 40px;
 }
 #Addcoffee-shop{
     background: #fff;
@@ -132,15 +132,14 @@ border-radius: 3px;
 .CS a h2:hover{
     color: #d11415;   
 }
-.CS a h2{
+.title a h2{
     font-family: "Playfair Display",serif;
     text-decoration: none;
     text-transform: capitalize;
     color: #262626;
     font-size: 2.2em;
-    margin-bottom: 15px;
     font-weight: bolder;
-    width: 70%;
+    width: auto;
 }
 .CS p{
     font-size: 14px;
@@ -155,7 +154,31 @@ border-radius: 3px;
 .red{
     color:"red";
 }
-
+.note button{
+    border: none;
+    border-radius: 3px;
+    background: green;
+    color: white;
+    font-family: 'Squada One', cursive;
+    font-weight: lighter;
+    width: 85px;
+    padding: 0.5px;
+    cursor: pointer;
+    word-spacing: 2px;   
+     
+}
+.CSname a h2{
+    font-family: "Playfair Display",serif;
+    text-decoration: none;
+    text-transform: capitalize;
+    color: #262626;
+    font-size: 2.2em;
+    font-weight: bolder;
+}
+.display{
+    margin-right: 20px;
+    float: right;
+}
 /*-----------------------------------------------COFFEE SHOP All DETAILS-------------------------------------------*/
 
 
