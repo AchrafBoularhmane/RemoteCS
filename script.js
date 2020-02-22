@@ -358,6 +358,10 @@ function gotData(data){
     var Sockets = document.createElement("div")
     var NSarea = document.createElement("div")
     var Noise = document.createElement("div")
+    var PricePlusSockets = document.createElement("div")
+    var NSareaPlusNoise = document.createElement("div")
+
+
 
     AddcoffeeShop.setAttribute("id", "Addcoffee-shop");
     CS.setAttribute("class", "CS");
@@ -376,17 +380,20 @@ function gotData(data){
     Noise.setAttribute("class","Noise");
     CSnameNote.setAttribute("class", "CSnameNote")
     CSname.setAttribute("class", "CSname")
+    PricePlusSockets.setAttribute("class", "PricePLusSockets")
+    NSareaPlusNoise.setAttribute("class", "NSareaPlusNoise")
 
 
-    Price.innerHTML += "<p class='Price'>Price: <span class='PriceValue'>" +PriceValue+ "</span></p>";
-    Sockets.innerHTML += "<p class='Socket'>Sockets: <span  class='SocketValue'>" +SocketsValue+ "</span></p>";
-    NSarea.innerHTML += "<p class='NSarea'>Non-smoking-area: <span  class='NsaValue'>" +NSareaValue+ "</span></p>";
-    Noise.innerHTML += "<p class='Noise'>Noise: <span  class='NoiseValue'>" +NoiseValue+ "</span></p>";
+
+    Price.innerHTML += "<p>Price: <span class='PriceValue'>" +PriceValue+ "</span></p>";
+    Sockets.innerHTML += "<p>Sockets: <span  class='SocketValue'>" +SocketsValue+ "</span></p>";
+    NSarea.innerHTML += "<p>Non-smoking-area: <span  class='NsaValue'>" +NSareaValue+ "</span></p>";
+    Noise.innerHTML += "<p>Noise: <span  class='NoiseValue'>" +NoiseValue+ "</span></p>";
     Link.innerHTML+="Link to Maps";
-    CSname.innerHTML += "<a href=''><h2>"  +NameCoffee+ "</h2></a><br>";
+    CSname.innerHTML += "<a href=''><h2>"  +NameCoffee+ "</h2></a>";
     note.innerHTML +="<button type='submit'>/ 10</button>";
-    uplogo.innerHTML +="<span style='margin-right: 5px; color: green;'><i class='fa fa-caret-up'> 0</span></i>";
-    downvoting.innerHTML +="<span style='margin-right: 5px; color: red;'><i class='fa fa-caret-down'> 0</span></i>";
+    uplogo.innerHTML +="<span style='margin-right: 5px; color: green;'>0 <i class='fa fa-caret-up'></span></i>";
+    downvoting.innerHTML +="<span style='margin-right: 5px; color: red;'>0 <i class='fa fa-caret-down'></span></i>";
     
     $('#All').append($(AddcoffeeShop))
     $(CS).append($(CSnameNote))
@@ -394,11 +401,14 @@ function gotData(data){
     $(CSnameNote.append(note))
     $(CS).append($(GMLink))
     $(GMLink).append($(Link))
-    $(CS).append($(Price))
-    $(CS).append($(Sockets))
-    $(CS).append($(NSarea))
-    $(CS).append($(Noise))
-
+    $(CS).append($(PricePlusSockets))
+    $(PricePlusSockets).append($(Price))
+    $(PricePlusSockets).append($(Sockets))
+    $(CS).append($(NSareaPlusNoise))
+    $(NSareaPlusNoise).append($(NSarea))
+    $(NSareaPlusNoise).append($(Noise))
+   
+  
     $(AddcoffeeShop).append($(CS))
     $(CS).append($(vote))
     $(vote).append($(upvoting))
