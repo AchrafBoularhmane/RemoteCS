@@ -123,7 +123,7 @@ border-radius: 3px;
  padding: 25px 25px;
  padding-bottom: 40px;
 }
-#Addcoffee-shop{
+.Addcoffee-shop{
     background: #fff;
     box-shadow: 0px 0px 10px 1px #3b3b3b ;
     border-radius: 3px;
@@ -207,6 +207,12 @@ margin: 15px 0px;
 .NSareaPlusNoise{
     display: inline-block;
 }
+.active{
+   background: red;
+}
+.desactive{
+    background: pink;
+ }
 /*-----------------------------------------------COFFEE SHOP All DETAILS-------------------------------------------*/
 
 

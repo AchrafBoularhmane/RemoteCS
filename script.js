@@ -1,270 +1,37 @@
 /*------------------------------------------------------FILTER OPTIONS ----------------------------------------------*/
-$(document).ready(function(){
-    /*Filter All*/ 
-    $('select#filterAll').change(function(){
-        var filterAll = $(this).children("option:selected").val();
-        var filterOptionPrice = document.querySelector('.filterOption.Price').innerHTML;
-        var filterOptionSockets = document.querySelector('.filterOption.Sockets').innerHTML;
-        var filterOptionNosmokingArea= document.querySelector('.filterOption.No-Smoking-Area').innerHTML;
 
-        var PriceValue = document.getElementById('PriceValue')
-        var Sockets = document.getElementById('Sockets')
-        var NoSmokingArea = document.getElementById('NoSmokingArea')
-        var FilterByPlus = document.getElementById('FilterByPlus')
+$('select#Price,select#Sockets,select#NoSmokingArea').change(function(e){
+    e.preventDefault()
+    var PriceSelected = $(this).children("option:selected").val();
+    var SocketsSelected = $(this).children("option:selected").val();
+    var NSaSelected = $(this).children("option:selected").val();
 
-        var lowPrice = document.getElementById('PriceLow').innerHTML;
-        var AveragePrice= document.getElementById('PriceAverage').innerHTML;
-        var HighPrice= document.getElementById('PriceHigh').innerHTML;
-        /*select price*/
-        
-        if(filterAll === filterOptionPrice){
-                 Sockets.classList.remove('active')            
-                 NoSmokingArea.classList.remove('active')
-                 PriceValue.classList.add('active')
-                 $(document).ready(function(){
-                        $('select#PriceValue').change(function(){
-                        var PriceValue = $(this).children("option:selected").val();
-                        FilterByPlus.classList.add('active')
+    var PriceValue = document.querySelectorAll('.PriceValue')
+    var SocketsValue = document.querySelectorAll('.SocketValue')
+    var coffeeShop = document.querySelectorAll('.Addcoffee-shop')
+    var NSarea = document.querySelectorAll('.NsaValue')
 
-                        FilterByPlus.addEventListener('click', function(e){
-                           e.preventDefault()
-                           Sockets.classList.add('active')
-                           }) 
+ 
+    for(i=0;i<coffeeShop.length;i++){
 
-                         $('.coffee-shop').hide();
-                         if(PriceValue === lowPrice){
-                                $('.coffee-shop.PricevalueLow').show();
-                                $('select#Sockets').change(function(){
-                                    var SocketValue = $(this).children("option:selected").val();
-                                    var LowSocket = document.getElementById('SocketLow').innerHTML;
-                                    var AverageSocket= document.getElementById('SocketAverage').innerHTML;
-                                    $('.coffee-shop.PricevalueLow').hide();
-                                    if(SocketValue === LowSocket){
-                                        $('.coffee-shop.PricevalueLow.SocketvalueLow').show();
-                                        FilterByPlus.addEventListener('click', function(e){
-                                            e.preventDefault()
-                                            NoSmokingArea.classList.add('active')
-                                            }) 
-                                         $('select#NoSmokingArea').change(function(){
-                                            var NoSmokingArea = $(this).children("option:selected").val();
-                                            var YesNSA = document.getElementById('NSAYES').innerHTML;
-                                            var NoNSA = document.getElementById('NSANO').innerHTML;
-                                            
-                                            $('.coffee-shop').hide();
-                                            if(NoSmokingArea === YesNSA){
-                                            $('.coffee-shop.PricevalueLow.SocketvalueLow.NSAreaYes').show();
-                                             }
-                        
-                                             else if(NoSmokingArea === NoNSA){
-                                             $('.coffee-shop.PricevalueLow.SocketvalueLow.NSAreaNo').show();
-                                              }
-                                    
-                                         }); 
-                                    }
-                              
-                                    else if(SocketValue === AverageSocket){
-                                       $('.coffee-shop.PricevalueLow.SocketvalueAverage').show();
-                                       FilterByPlus.addEventListener('click', function(e){
-                                        e.preventDefault()
-                                        NoSmokingArea.classList.add('active')
-                                        }) 
-                                     $('select#NoSmokingArea').change(function(){
-                                        var NoSmokingArea = $(this).children("option:selected").val();
-                                        var YesNSA = document.getElementById('NSAYES').innerHTML;
-                                        var NoNSA = document.getElementById('NSANO').innerHTML;
-                                        
-                                        $('.coffee-shop').hide();
-                                        if(NoSmokingArea === YesNSA){
-                                        $('.coffee-shop.PricevalueLow.SocketvalueAverage.NSAreaYes').show();
-                                         }
+        coffeeShop[i].style.display="none"
+
+           if(PriceSelected == PriceValue[i].textContent || SocketsSelected == SocketsValue[i].textContent
+                || NSaSelected == NSarea[i].textContent   ){
                     
-                                         else if(NoSmokingArea === NoNSA){
-                                         $('.coffee-shop.PricevalueLow.SocketvalueAverage.NSAreaNo').show();
-                                          }
-                                
-                                     }); 
-                                    }
-                                    else {
-                                        $('.coffee-shop').hide();
-                                    }
-                              
-                                 }); 
-                                
-                         }
-
-                         else if(PriceValue === AveragePrice){
-                            $('.coffee-shop.PricevalueAverage').show();  
-                            $('select#Sockets').change(function(){
-                                var SocketValue = $(this).children("option:selected").val();
-                                var LowSocket = document.getElementById('SocketLow').innerHTML;
-                                var AverageSocket= document.getElementById('SocketAverage').innerHTML;
-                                $('.coffee-shop.PricevalueAverage').hide();
-                                if(SocketValue === LowSocket){
-                                    $('.coffee-shop.PricevalueAverage.SocketvalueLow').show();
-                                    FilterByPlus.addEventListener('click', function(e){
-                                        e.preventDefault()
-                                        NoSmokingArea.classList.add('active')
-                                        }) 
-                                     $('select#NoSmokingArea').change(function(){
-                                        var NoSmokingArea = $(this).children("option:selected").val();
-                                        var YesNSA = document.getElementById('NSAYES').innerHTML;
-                                        var NoNSA = document.getElementById('NSANO').innerHTML;
-                                        
-                                        $('.coffee-shop').hide();
-                                        if(NoSmokingArea === YesNSA){
-                                        $('.coffee-shop.PricevalueAverage.SocketvalueLow.NSAreaYes').show();
-                                         }
-                    
-                                         else if(NoSmokingArea === NoNSA){
-                                         $('.coffee-shop.PricevalueAverage.SocketvalueLow.NSAreaNo').show();
-                                          }
-                                
-                                     }); 
-                                
-                                }
-                                  
-                                        else if(SocketValue === AverageSocket){
-                                           $('.coffee-shop.PricevalueAverage.SocketvalueAverage').show();
-                                           FilterByPlus.addEventListener('click', function(e){
-                                            e.preventDefault()
-                                            NoSmokingArea.classList.add('active')
-                                            }) 
-                                         $('select#NoSmokingArea').change(function(){
-                                            var NoSmokingArea = $(this).children("option:selected").val();
-                                            var YesNSA = document.getElementById('NSAYES').innerHTML;
-                                            var NoNSA = document.getElementById('NSANO').innerHTML;
-                                            
-                                            $('.coffee-shop').hide();
-                                            if(NoSmokingArea === YesNSA){
-                                            $('.coffee-shop.PricevalueAverage.SocketvalueAverage.NSAreaYes').show();
-                                             }
-                        
-                                             else if(NoSmokingArea === NoNSA){
-                                             $('.coffee-shop.PricevalueAverage.SocketvalueAverage.NSAreaNo').show();
-                                              }
-                                    
-                                         }); 
-                                        }
-                                        else {
-                                            $('.coffee-shop').hide();
-                                        }
-                                  
-                                     }); 
-                                
-                                    }
-                         
-                        else if(PriceValue === HighPrice){
-                        $('.coffee-shop.PricevalueHigh').show();
-                        $('select#Sockets').change(function(){
-                            var SocketValue = $(this).children("option:selected").val();
-                            var LowSocket = document.getElementById('SocketLow').innerHTML;
-                            var AverageSocket= document.getElementById('SocketAverage').innerHTML;
-                            $('.coffee-shop.PricevalueHigh').hide();
-                            if(SocketValue === LowSocket){
-                                $('.coffee-shop.PricevalueHigh.SocketvalueLow').show();
-                                FilterByPlus.addEventListener('click', function(e){
-                                    e.preventDefault()
-                                    NoSmokingArea.classList.add('active')
-                                    }) 
-                                 $('select#NoSmokingArea').change(function(){
-                                    var NoSmokingArea = $(this).children("option:selected").val();
-                                    var YesNSA = document.getElementById('NSAYES').innerHTML;
-                                    var NoNSA = document.getElementById('NSANO').innerHTML;
-                                    
-                                    $('.coffee-shop').hide();
-                                    if(NoSmokingArea === YesNSA){
-                                    $('.coffee-shop.PricevalueHigh.SocketvalueLow.NSAreaYes').show();
-                                     }
-                
-                                     else if(NoSmokingArea === NoNSA){
-                                     $('.coffee-shop.PricevalueHigh.SocketvalueLow.NSAreaNo').show();
-                                      }
-                            
-                                 }); 
-                            }
-                            
-                            else if(SocketValue === AverageSocket){
-                                $('.coffee-shop.PricevalueHigh.SocketvalueAverage').show();
-                                FilterByPlus.addEventListener('click', function(e){
-                                    e.preventDefault()
-                                    NoSmokingArea.classList.add('active')
-                                    }) 
-                                 $('select#NoSmokingArea').change(function(){
-                                    var NoSmokingArea = $(this).children("option:selected").val();
-                                    var YesNSA = document.getElementById('NSAYES').innerHTML;
-                                    var NoNSA = document.getElementById('NSANO').innerHTML;
-                                    
-                                    $('.coffee-shop').hide();
-                                    if(NoSmokingArea === YesNSA){
-                                    $('.coffee-shop.PricevalueHigh.SocketvalueAverage.NSAreaYes').show();
-                                     }
-                
-                                     else if(NoSmokingArea === NoNSA){
-                                     $('.coffee-shop.PricevalueHigh.SocketvalueAverage.NSAreaNo').show();
-                                      }
-                            
-                                 }); 
-                            }
-                            else {
-                                $('.coffee-shop').hide();
-                            }       
-                         });   
-                        }       
-             }); 
-            }); 
-                   
-        } else
-        /*select sockets*/
-         if(filterAll === filterOptionSockets){
-            PriceValue.classList.remove('active')
-            Sockets.classList.add('active')
-            NoSmokingArea.classList.remove('active')
+                coffeeShop[i].style.display="block"
+            } 
             
-            $(document).ready(function(){
-                $('select#Sockets').change(function(){
-                    var SocketValue = $(this).children("option:selected").val();
-                    var LowSocket = document.getElementById('SocketLow').innerHTML;
-                    var AverageSocket= document.getElementById('SocketAverage').innerHTML;
-                
-                    $('.coffee-shop').hide();
-                    if(SocketValue === LowSocket){
-                        $('.coffee-shop.SocketvalueLow').show();
-                    }
-              
-                    else if(SocketValue === AverageSocket){
-                       $('.coffee-shop.SocketvalueAverage').show();
-                    }
-                    else {
-                        $('.coffee-shop').hide();
-                    }
-              
-                 }); 
-                }); 
-        } 
-        /*select non-smoking area*/
-        else if(filterAll === filterOptionNosmokingArea){
-            PriceValue.classList.remove('active')            
-            Sockets.classList.remove('active')            
-            NoSmokingArea.classList.add('active')
-            $(document).ready(function(){
-                   $('select#NoSmokingArea').change(function(){
-                    var NoSmokingArea = $(this).children("option:selected").val();
-                    var YesNSA = document.getElementById('NSAYES').innerHTML;
-                    var NoNSA = document.getElementById('NSANO').innerHTML;
+            if(PriceSelected == PriceValue[i].textContent &&
+                 SocketsSelected == SocketsValue[i].textContent && NSaSelected == NSarea[i].textContent ){
                     
-                    $('.coffee-shop').hide();
-                    if(NoSmokingArea === YesNSA){
-                    $('.coffee-shop.NSAreaYes').show();
-                     }
+                coffeeShop[i].style.display="block"
+            }
 
-                     else if(NoSmokingArea === NoNSA){
-                     $('.coffee-shop.NSAreaNo').show();
-                      }
-                 }); 
-                });
-        }
-    });
-    });
+    }
+})
+
+
 
 /*---------------------------------------------------ADD NEW COFFEE SHOP ----------------------------------------------*/
 var Addcoffeeshop = document.querySelector('.Addcoffee-shop')
@@ -363,7 +130,7 @@ function gotData(data){
 
 
 
-    AddcoffeeShop.setAttribute("id", "Addcoffee-shop");
+    AddcoffeeShop.setAttribute("class", "Addcoffee-shop");
     CS.setAttribute("class", "CS");
     vote.setAttribute("class","vote");
     upvoting.setAttribute("class","upvoting display");
@@ -416,33 +183,35 @@ function gotData(data){
     $(upvoting).append($(uplogo))
     $(downvoting).append($(downlogo))
 
+
     var PriceValue = document.querySelectorAll(".PriceValue");
     var SocketValue = document.querySelectorAll(".SocketValue");
     var NSaValue = document.querySelectorAll(".NsaValue");
     var NoiseValue = document.querySelectorAll(".NoiseValue");
 
+
      PriceValue.forEach(function(PriceValue) {
         PriceValue.style.fontWeight="bolder"
          if(PriceValue.innerHTML==='High'){
             PriceValue.style.color="red"
-
                  }else if (PriceValue.innerHTML==='Low'){
                     PriceValue.style.color="Green"
                          }else if (PriceValue.innerHTML==='Average'){
                             PriceValue.style.color="Gold"
                                  }
      });
+
      SocketValue.forEach(function(SocketValue) {
         SocketValue.style.fontWeight="bolder"
          if(SocketValue.innerHTML==='High'){
             SocketValue.style.color="red"
-
                  }else if (SocketValue.innerHTML==='Low'){
                     SocketValue.style.color="Green"
                          }else if (SocketValue.innerHTML==='Average'){
                             SocketValue.style.color="Gold"
                                  }
      }); 
+
      NoiseValue.forEach(function(NoiseValue) {
         NoiseValue.style.fontWeight="bolder"
          if(NoiseValue.innerHTML==='High'){
@@ -453,6 +222,7 @@ function gotData(data){
                             NoiseValue.style.color="Gold"
                                  }
      });
+
      NSaValue.forEach(function(NSaValue) {
         NSaValue.style.fontWeight="bolder"
          if(NSaValue.innerHTML==='Yes'){
@@ -461,11 +231,12 @@ function gotData(data){
                     NSaValue.style.color="red"
                          }
     });
+
    
     }
     }
        
-  
+/*-----------------------------------------------------------------------------------------------------------------------*/ 
 
 
 

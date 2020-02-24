@@ -32,38 +32,30 @@
          <div class="filter">
            <h2 class="filter-title">Filter by : </h2>
          </div>
-          <!--<div class="filter">
-                   <select id="filterAll" class="select-filter">
-                         <option  disabled selected hidden ></option>
-                         <option  value="Price" class="filterOption Price">Price</option>
-                         <option  value="Sockets" class="filterOption Sockets">Sockets</option>
-                         <option  value="No smoking area" class="filterOption No-Smoking-Area">No smoking area</option>
-
-                    </select>
-           </div>  -->
+         
          <div class="filter">
-                <select id="PriceValue" class="select-filter">
+                <select id="Price" class="select-filter" > 
                     <option  disabled selected hidden >Price</option>
-                    <option  value="Low" class="filterOption">Low</option>
-                    <option  value="Average" class="filterOption">Average</option>
-                    <option  value="High" class="filterOption">High</option>
+                    <option  value="Low" class="filterOption PriceOption ">Low</option>
+                    <option  value="Average" class="filterOption PriceOption">Average</option>
+                    <option  value="High" class="filterOption PriceOption">High</option>
          </select>
          </div>
            
          <div class="filter">
             <select id="Sockets" class="select-filter">
                 <option  disabled selected hidden>Sockets</option>
-                <option  value="Low" class="filterOption">Low</option>
-                <option  value="Average" class="filterOption">Average</option>
-                <option  value="High" class="filterOption">High</option>
+                <option  value="Low" class="filterOption SocketsOption">Low</option>
+                <option  value="Average" class="filterOption SocketsOption">Average</option>
+                <option  value="High" class="filterOption SocketsOption">High</option>
             </select>
          </div>
 
          <div class="filter">
             <select id="NoSmokingArea" class="select-filter">
                 <option  disabled selected hidden>Non-smoking area</option>
-                <option  value="Yes" class="filterOption">Yes</option>
-                <option  value="No" class="filterOption">No</option>
+                <option  value="Yes" class="filterOption NSareaOption">Yes</option>
+                <option  value="No" class="filterOption NSareaOption">No</option>
             </select>
          </div>
 
@@ -96,26 +88,26 @@
             </div>
             <div class="Add Price">
                   <label for="price" class="">Price: </label>
-                  <span>Low</span><input type="checkbox" id="lowPrice" value="Low" class="priceForm">
-                  <span>Average</span><input type="checkbox" id="averagePrice" value="Average" class="priceForm">
-                  <span>High</span><input type="checkbox" id="highPrice" value="High" class="priceForm">
+                  <span>Low</span><input type="radio" name="P" id="lowPrice" value="Low" class="priceForm">
+                  <span>Average</span><input type="radio" name="P" id="averagePrice" value="Average" class="priceForm">
+                  <span>High</span><input type="radio" name="P" id="highPrice" value="High" class="priceForm">
             </div>
             <div class="Add SmokingArea">
                  <label for ="N-S-A" class="">No-smoking area: </label>
-                 <span>Yes</span><input type="checkbox" class="NsArea" value="Yes">
-                 <span>No</span><input type="checkbox" class="NsArea" value="No">
+                 <span>Yes</span><input type="radio" name="NSA" class="NsArea"  value="Yes">
+                 <span>No</span><input type="radio" name="NSA" class="NsArea"  value="No">
             </div>
             <div class="Add Sockets">
                  <label for="sockets" class=""> Sockets: </label> 
-                 <span>Low</span><input type="checkbox" id="lowSocket" value="Low" class="socketForm">
-                 <span>Average</span><input type="checkbox" id="averageSocket" value="Average" class="socketForm">
-                 <span>High</span><input type="checkbox" id="highSocket" value="High" class="socketForm">
+                 <span>Low</span><input type="radio" name="S" id="lowSocket" value="Low" class="socketForm">
+                 <span>Average</span><input type="radio" name="S" id="averageSocket" value="Average" class="socketForm">
+                 <span>High</span><input type="radio"  name="S" id="highSocket" value="High" class="socketForm">
             </div>
             <div class="Add Noise">
                 <label for="noise" class=""> Noise: </label> 
-                <span>Low</span><input type="checkbox" id="lowNoise" value="Low" class="noiseForm">
-                <span>Average</span><input type="checkbox" id="averageNoise" value="Average" class="noiseForm">
-                <span>High</span><input type="checkbox" id="highNoise" value="High" class="noiseForm">
+                <span>Low</span><input type="radio" name="N" id="lowNoise" value="Low" class="noiseForm">
+                <span>Average</span><input type="radio" name="N" id="averageNoise" value="Average" class="noiseForm">
+                <span>High</span><input type="radio" name="N" id="highNoise" value="High" class="noiseForm">
            </div>
             <div class="Add Yourname">
                 <label for="name-user">Your name: </label> 
