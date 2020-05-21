@@ -7,145 +7,199 @@
     <link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
     <link rel="stylesheet" href="style.css">
-    <script src="https://code.jquery.com/jquery-3.4.1.js"></script>
       
-
     <title>Best Coffee Shop</title>
 </head>
 <body>
-    <div class="All">
 
+<div class="ALL">
 <!----------------------------------------------HEADER INFO ( title, filter,addnewbtn)-------------------------------------------------->
-
-     <div class="header">
-         <div class="title">
-            <h1 class="title-page">Best Coffee Shops  </h1>
-         </div>
-            <div class="city">
-                <span class="title-page1"> In&nbsp;</span>
-                <select name="city" class="select-city" disabled>
-                    <option type="text" value="Casablanca">Casablanca</option>
-                 </select>
-            </div>
-     </div>
-                                                 <!--FILTER-->
-         <div class="filter">
-           <h2 class="filter-title">Filter by : </h2>
-         </div>
-         
-         <div class="filter">
-                <select id="Price" class="select-filter" > 
-                    <option  disabled selected hidden >Price</option>
-                    <option  value="Low" class="filterOption PriceOption ">Low</option>
-                    <option  value="Average" class="filterOption PriceOption">Average</option>
-                    <option  value="High" class="filterOption PriceOption">High</option>
-         </select>
-         </div>
-           
-         <div class="filter">
-            <select id="Sockets" class="select-filter">
-                <option  disabled selected hidden>Sockets</option>
-                <option  value="Low" class="filterOption SocketsOption">Low</option>
-                <option  value="Average" class="filterOption SocketsOption">Average</option>
-                <option  value="High" class="filterOption SocketsOption">High</option>
-            </select>
-         </div>
-
-         <div class="filter">
-            <select id="NoSmokingArea" class="select-filter">
-                <option  disabled selected hidden>Non-smoking area</option>
-                <option  value="Yes" class="filterOption NSareaOption">Yes</option>
-                <option  value="No" class="filterOption NSareaOption">No</option>
-            </select>
-         </div>
-
-         <div class="filter">
-             <input type="submit" value="Add New" id="AddNewCSbtn" >
-         </div>         
-
-<!--------------------------------------ADD NEW COFEE SHOP (AddNewForm+Verification)----------------------------------------------->
-        <div class="AddNew-form-modal">
-        <div class="AddNew-form">
-        <h1 class="Add-New-title">Add a new coffee shop</h1>
-        <a  class="close-form" href="">X</a>
-        <form class="" id="AddNewCoffeeShopForm">
-            <div class="Add">
-            <label for="coffeeName" class=""> Coffee name: </label>
-            <input type="text" value="" id="coffee-name-data" >
-            <div class="">
-                <label for="city">City: </label>
-                <select  class="" >
-                   <option value="Casablanca" class="city-data">Casablanca</option>
-                   <option value="Rabat" class="city-data">Rabat</option>
-                   <option value="Marrakech" class="city-data">Marrakech</option>
-                   <option value="Agadir" class="city-data">Agadir</option>
-                   <option value="Fes" class="city-data">Fes</option>
-                </select>
-            </div>
-            <div class="Add MapsLink">
-                 <label for="G-M-L" class=""> Google maps link: </label>
-                  <input type="text" class="G-M-Link-data" value="">
-            </div>
-            <div class="Add Price">
-                  <label for="price" class="">Price: </label>
-                  <span>Low</span><input type="radio" name="P" id="lowPrice" value="Low" class="priceForm">
-                  <span>Average</span><input type="radio" name="P" id="averagePrice" value="Average" class="priceForm">
-                  <span>High</span><input type="radio" name="P" id="highPrice" value="High" class="priceForm">
-            </div>
-            <div class="Add SmokingArea">
-                 <label for ="N-S-A" class="">No-smoking area: </label>
-                 <span>Yes</span><input type="radio" name="NSA" class="NsArea"  value="Yes">
-                 <span>No</span><input type="radio" name="NSA" class="NsArea"  value="No">
-            </div>
-            <div class="Add Sockets">
-                 <label for="sockets" class=""> Sockets: </label> 
-                 <span>Low</span><input type="radio" name="S" id="lowSocket" value="Low" class="socketForm">
-                 <span>Average</span><input type="radio" name="S" id="averageSocket" value="Average" class="socketForm">
-                 <span>High</span><input type="radio"  name="S" id="highSocket" value="High" class="socketForm">
-            </div>
-            <div class="Add Noise">
-                <label for="noise" class=""> Noise: </label> 
-                <span>Low</span><input type="radio" name="N" id="lowNoise" value="Low" class="noiseForm">
-                <span>Average</span><input type="radio" name="N" id="averageNoise" value="Average" class="noiseForm">
-                <span>High</span><input type="radio" name="N" id="highNoise" value="High" class="noiseForm">
-           </div>
-            <div class="Add Yourname">
-                <label for="name-user">Your name: </label> 
-                <input type="text" id="name-data">
-            </div>
-            <div class="Add YourMail">
-                <label for="mail-user">Your mail:</label> 
-                <input type="text" id="email-data">
-            </div>
-            <div class="confirm">
-                <input type="submit" value="Confirm" id="confirm">
-            </div>
+<div class="container"> 
+<div class="header">
+     <h1 class="title-page">Best Coffee Shops  </h1>
+     <div class="city">
+         <span class="title-page"> In</span>
+         <div class="form-group">
+          <select class="form-control-sm" id="city-data">
+            <option >Casablanca</option>
+          </select>
         </div>
-        </form>
-    </div>
+     </div>
 </div>
+                                          <!--FILTER-->
+  <div class="filter">
+    <h2 class="filter-title display">Filter by : </h2>
+
+  <div class="form-group display">
+    <select class="form-control-sm" id="Price">
+             <option disabled selected hidden >Price</option>
+             <option  value="Low" class="filter-Option">Low</option>
+             <option  value="Average" class="filter-Option">Average</option>
+             <option  value="High" class="filter-Option">High</option>
+    </select>
+  </div>
+
+  <div class="form-group display">
+    <select class="form-control-sm" id="Sockets">
+      <option  disabled selected hidden >Sockets</option>
+             <option  value="Low" class="filter-Option">Low</option>
+             <option  value="Average" class="filter-Option">Average</option>
+             <option  value="High" class="filter-Option">High</option>
+    </select>
+  </div>
+
+  <button type="button" class="btn btn-dark btn-sm" id="AddNewCSbtn">Add new</button>       
+</div>
+</div>
+<!--------------------------------------ADD NEW COFEE SHOP (AddNewForm+Verification)----------------------------------------------->
+<div class="container"> 
+  <div class="modal-bg">
+<div class="CS_form">
+  <h2>Add a New Coffee </h2>
+  <button id="close"><i class="fa fa-times"></i></button>
+  <form id="AddNewCoffeeShopForm" name="form">
+      <div class="form-group">
+        <label for="">Coffee Name:</label>
+        <input type="text"class="form-control" id="coffee-name-data"name="Csname" minlength="2">
+        <p class="error-CSname hide"> Required and alphabates only <i class="fa fa-exclamation-triangle"></i></p>
+      </div>
+      <div class="form-group">
+        <label for="">City:</label>
+        <select class="form-control" id="city-data">
+          <option >Casablanca</option>
+        </select>
+      </div>
+      <div class="form-group">
+          <label for="">Google Maps Link:</label>
+          <input type="url"  class="form-control" id="G-M-Link-data" name="Mapslink" required>
+          <p class="error-GM hide"> Required. Must be a valid link <i class="fa fa-exclamation-triangle"></i></p>
+
+      </div>
+      <div class="form-group">
+          <label for="">Price:</label>
+          <select class="form-control" id="price-data">
+            <option>Low</option>
+            <option>Average</option>
+            <option>Hight</option>
+          </select>
+      </div>
+      <div class="form-group">
+          <label for="">None Smoking Area :</label>
+          <select class="form-control modal-input" id="NSA-data">
+            <option>Yes</option>
+            <option>No</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label for="">Sockets:</label>
+          <select class="form-control modal-input" id="sockets-data">
+            <option>Low</option>
+            <option>Average</option>
+            <option>Hight</option>
+          </select>
+      </div>
+      <div class="form-group">
+          <label for="">Noise:</label>
+          <select class="form-control" id="noise-data">
+            <option>Low</option>
+            <option>Average</option>
+            <option>Hight</option>
+          </select>
+      </div>
+      <div class="form-group">
+          <label for="">Your Name:</label>
+          <input type="text" class="form-control" id="name-data"  name="UserName" required minlength="2">
+          <p class="error-name hide"> Required and alphabates only <i class="fa fa-exclamation-triangle"></i></p>
+
+      </div>
+      <div class="form-group">
+          <label for="">Your  Email:</label>
+          <input type="email" class="form-control" id="email-data"  name="Useremail" required>
+          <p class="error-email hide"> Required. Must be a valid email <i class="fa fa-exclamation-triangle"></i></p>
+
+        </div>
+        <button type="submit" class="btn-sm btn-danger" id="CSformSubmit">Confirm</button>
+    </form>
+  </div>
+</div>
+
                                         <!--Confirmation-Code-->
-  
-    
 
 
+
+
+</div>
 
 <!--------------------------------------COFEE SHOP ADDED BY USER (DISPLAY)----------------------------------------------->
+<div class="container"> 
+<div id="All-CS"></div>
+</div>
 
+<!--------------------------------------------UP REVIEW FORM ----------------------------------------------------------->
+<div class="container"> 
+  <div class="modal-upreview">
+<div class="UpReveiw_form">
+  <h2 class="UpReveiw_title">You are up voting : <span class="up-name-data"></span> </h2>
+  <button id="close-up-review"><i class="fa fa-times"></i></button>
+  <form id="UpvoteForm" name="form1">
+      <div class="form-group">
+        <label for="">Please include a review for others:</label>
+        <textarea type="text"class="form-control" id="up-review-data"name="up-review" minlength="2" placeholder="Your review"></textarea>
+        <p class="error-Upvote hide"> Required and alphabates only <i class="fa fa-exclamation-triangle"></i></p>
+      </div>
+      <div class="form-group">
+          <label for="">A name we can use for display :</label>
+          <input type="text" class="form-control" id="name-upreview-data"  name="UserName" required minlength="2" placeholder="Your name">
+          <p class="error-name hide"> Required and alphabates only <i class="fa fa-exclamation-triangle"></i></p>
 
- <div id="All">
+      </div>
+      <div class="form-group">
+          <label for="">Your  Email:</label>
+          <input type="email" class="form-control" id="email-upreview-data"  name="Useremail" required placeholder="Your Email">
+          <p class="error-email hide"> Required. Must be a valid email <i class="fa fa-exclamation-triangle"></i></p>
+        </div>
+        <button type="submit" class="btn-sm btn-danger" id="UpReviewSubmit">Confirm</button>
+    </form>
+  </div>
+</div>
+<!--------------------------------------------Down REVIEW FORM ----------------------------------------------------------->
+<div class="container"> 
+  <div class="modal-downreview">
+<div class="DownReveiw_form">
+  <h2 class="DownReveiw_title">You are down voting : <span class="down-name-data"></span> </h2>
+  <button id="close-down-review"><i class="fa fa-times"></i></button>
+  <form id="DownvoteForm" name="form">
+      <div class="form-group">
+        <label for="">Please include a review for others:</label>
+        <textarea type="text"class="form-control" id="down-review-data"name="up-review" minlength="2" placeholder="Your review"></textarea>
+        <p class="error-Upvote hide"> Required and alphabates only <i class="fa fa-exclamation-triangle"></i></p>
+      </div>
+      <div class="form-group">
+          <label for="">A name we can use for display :</label>
+          <input type="text" class="form-control" id="name-downreview-data"  name="UserName" required minlength="2" placeholder="Your name">
+          <p class="error-name hide"> Required and alphabates only <i class="fa fa-exclamation-triangle"></i></p>
+
+      </div>
+      <div class="form-group">
+          <label for="">Your  email:</label>
+          <input type="email" class="form-control" id="email-downreview-data"  name="Useremail" required placeholder="Your email">
+          <p class="error-email hide"> Required. Must be a valid email <i class="fa fa-exclamation-triangle"></i></p>
+        </div>
+        <button type="submit" class="btn-sm btn-danger" id="DownReviewSubmit">Confirm</button>
+    </form>
+  </div>
+</div>
+</div>
+<!-------------------------------------------------------------------------------------------------------------------------------------->
 
 </div>
- 
-
-<!--------------------------------------------VOTE AND COMMENT----------------------------------------------------------->    
 <script src="https://www.gstatic.com/firebasejs/7.8.0/firebase-app.js"></script>
 <script src="https://www.gstatic.com/firebasejs/7.8.0/firebase-analytics.js"></script>
 <script src="https://www.gstatic.com/firebasejs/7.8.0/firebase-database.js"></script>
 <script src="https://www.gstatic.com/firebasejs/7.8.0/firebase-auth.js"></script>
 <script src="https://www.gstatic.com/firebasejs/7.8.0/firebase-firestore.js"></script>
 <script src="https://code.jquery.com/jquery-3.4.1.js"></script>
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
 <script src="script.js"></script>
-</div>
 </body>
 </html>
