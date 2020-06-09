@@ -8,7 +8,6 @@ $('select#Price,select#Sockets,select#NSArea').change(function(e){
         PriceValue = document.querySelectorAll(".Price-Value"),
         SocketValue = document.querySelectorAll(".Sockets-Value");
  
-
         for(i=0;i<coffeeShop.length;i++){
             coffeeShop[i].classList.add("hide");
                if(PriceSelected == PriceValue[i].textContent || SocketsSelected == SocketValue[i].textContent){ 
@@ -16,10 +15,7 @@ $('select#Price,select#Sockets,select#NSArea').change(function(e){
                     coffeeShop[i].classList.remove("hide");
                 }  
         }
-       
 })
-
-
 
 /*---------------------------------------------------ADD NEW COFFEE SHOP FORM (FIREBASE) ----------------------------------------------*/
 document.querySelector('#AddNewCoffeeShopForm').addEventListener("submit", function(e){
@@ -135,7 +131,7 @@ function gotData(data){
                  NameAndNote =  jQuery('<div/>', {"class": 'Name-Note'}).appendTo($(CS)),
                  Name =  jQuery('<div/>', {"class": 'Name-div'}).appendTo($(NameAndNote)),
                  Note =  jQuery('<div/>', {"class": 'Note'}).appendTo($(NameAndNote)),
-                 GMLink = jQuery('<div/>',{"class":'GM-Link'}).appendTo($(CS)),
+                 GMLink = jQuery('<div/>',{"class":'GM-Link hide'}).appendTo($(CS)),
                  Link = jQuery('<a/>',{"href":GML,"target":"_blank"}).appendTo($(GMLink)),
                  PriceAndSockets = jQuery('<div/>',{"class":'Price-Sockets flex'}).appendTo($(CS)),
                  Price = jQuery('<div/>',{"class":'Price'}).appendTo($(PriceAndSockets)),
@@ -144,7 +140,7 @@ function gotData(data){
                  NS = jQuery('<div/>',{"class":'NS'}).appendTo($(NSAndNoise)),
                  Noise = jQuery('<div/>',{"class":'Noise'}).appendTo($(NSAndNoise)),
                  Vote = jQuery('<div/>',{"class":'Vote'}).appendTo($(CS)),
-                 VoteDesc = jQuery('<span>Votes : <span/>',{"class":'desc display'}).appendTo($(Vote)),
+                 VoteDesc = jQuery('<span>Vote : <span/>',{"class":'desc display'}).appendTo($(Vote)),
                  UpVote = jQuery('<div/>',{"class":'Up_Vote display',}).appendTo($(Vote)),
                  UpLogo = jQuery('<div/>',{"class":'Up_logo'}).appendTo($(UpVote)),
                  DownVote = jQuery('<div/>',{"class":'Down_Vote display'}).appendTo($(Vote)),
@@ -157,7 +153,7 @@ function gotData(data){
                  jQuery('<p>Sockets : <span class ="Sockets-Value">' + SocketsValue +'</span></p>').appendTo($(Sockets));
                  jQuery('<p>Noise : <span class ="Noise-Value">' + NoiseValue +'</span></p>').appendTo($(Noise));
                  jQuery('<p>Non-Smoking : <span class ="NS-Value">' + NSareaValue +'</span></p>').appendTo($(NS));
-                 jQuery('<button type="submit" class="btn-sm btn-success">/10</button>').appendTo($(Note));
+                 jQuery('<button type="submit" class="btn-sm btn-success">NOTE / 10</button>').appendTo($(Note));
                  jQuery('<span class ="red" style="margin-right: 5px;"><span class="down-note"></span> <i class="fa fa-caret-down"></i></span>').appendTo($(DownVote));
                  jQuery('<span class ="green" style="margin-right: 5px;"><span class="up-note"></span> <i class="fa fa-caret-up"></i></span>').appendTo($(UpVote));
                  jQuery('<span class = "GMLink">Link to Maps<span/>').appendTo($(Link)); 
@@ -197,80 +193,118 @@ function gotData(data){
                   });              
     }
 
-                 /*USER REVIEW*/
+  /*USER REVIEW*/
                  
-                 $('.Addcoffee-shop').each(function(){
+  $('.Addcoffee-shop').each(function(){
 
-                    var name = $(this).find(".Name").html(),
-                        up = $(this).find(".Up_Vote"),
-                        down = $(this).find(".Down_Vote");
-                        
-                        let rev = database.ref("Reviews");
-                        let ref1 = database.ref(name + " " + "Up Review Added");
+    var name = $(this).find(".Name").html(),
+        up = $(this).find(".Up_Vote"),
+        down = $(this).find(".Down_Vote"),
+        CS = $(this).find(".CS"),
+        GM = $(this).find(".GM-Link"),
+        UpNote = $(this).find(".up-note"),
+        DownNote = $(this).find(".down-note"),
+        BoxReview = jQuery('<div/>',{"class":'Box-Review hide'}).appendTo($(CS)),
+        BoxReviewTitle = jQuery('<h3>Votes :<h3/>',{"class":'Box-Review-title'}).appendTo($(BoxReview)); 
 
-                        ref1.on('value', getdata);
+        let ref1 = database.ref(name + " " + "Up Review Added");
+        let ref2 = database.ref(name + " " + "Down Review Added");
 
-                        function getdata(data){
-                            var review = data.val(),
-                                keys = Object.keys(review);
-                
-                            for (var i=0;i<keys.length;i++){
-                                var k = keys[i],
-                                    upreview = review[k].upreview,
-                                    
-                                    boxReview = jQuery('<div/>',{"class":'Box-Review'}).appendTo($('.CS'));        
-                                    jQuery('<span class = "rev">' + upreview +'</span>').appendTo($(boxReview));                            
-                        
-                            }
-                        }
-                                       
-                    $(up).on("click",function(){
-                        $('.modal-upreview').addClass('show');
-                        var cont =  document.querySelector('.up-name-data');
-                            cont.innerHTML = name;
-                        
-                        document.querySelector('#UpvoteForm').addEventListener("submit", function(){
-                            upReviewSubmit()
-                        })
-                           function upReviewSubmit(){
-                            let data = {
-                                upreview : $('#up-review-data').val(),
-                                username : $('#name-upreview-data').val(),
-                                useremail : $('#email-upreview-data').val(),       
-                            }
-                            $('.modal-upreview').addClass('hide');
-                            $('.modal-upreview').removeClass('show');
-                            ref1.push(data)
-                            document.getElementById('UpvoteForm').reset();
-                         }
-                      
-                    })
-                
-                    $(down).on("click",function(){
-                        $('.modal-downreview').addClass('show');
-                        var cont =  document.querySelector('.down-name-data');
-                        cont.innerHTML = name;          
-                        
-                        document.querySelector('#DownvoteForm').addEventListener("submit", function(){
-                            upReviewSubmit()
-                        })
-                         let ref2 = database.ref(name + " " + "Down Review Added")
-                         function upReviewSubmit(){
-                            let data = {
-                                upreview : $('#down-review-data').val(),
-                                username : $('#name-downreview-data').val(),
-                                useremail : $('#email-downreview-data').val(),       
-                            }
-                            $('.modal-downreview').addClass('hide');
-                            $('.modal-downreview').removeClass('show');
-                            ref2.push(data)
-                            document.getElementById('DownvoteForm').reset(); 
-                         }                  
-                    })
-                });
-    }
+        ref1.on('value', getdataup);
+        ref2.on('value', getdatadown);
+
+        function getdataup(data){
+
+            var review = data.val(),
+                keys = Object.keys(review);
+                upnumber = keys.length; 
+                UpNote[0].innerHTML = upnumber;
+            for (var i=0;i<keys.length;i++){
+                var k = keys[i],
+                    UpReview = review[k].UpReview,
+                    UpUserName = review[k].UpUserName;
+                    jQuery('<div class ="up_review"><span class = "user_name">' + UpUserName + " " + '<span class="green x">Upvoted</span>'+'</span><span class = "review">' + UpReview +'</span><span class ="green" style="margin-right: 5px;"><span class="up-note"></span> <i class="fa fa-caret-up align"></i></span></div>').appendTo($(BoxReview)); 
+                }
+        }
+        function getdatadown(data){
+            var review = data.val(),
+                keys = Object.keys(review);
+                downnumber = keys.length;
+                DownNote[0].innerHTML = downnumber;
+            for (var i=0;i<keys.length;i++){
+                var k = keys[i];
+                    DownReview = review[k].DownReview;
+                    DownUserName = review[k].DownUserName;
+                    jQuery('<div class ="down_review"><span class = "user_name">' + DownUserName +  " " + '<span class ="red x">Downvoted</span>'+'</span><span class = "review">' + DownReview +'</span><span class ="red" style="margin-right: 5px;"><span class="up-note"></span> <i class="fa fa-caret-down align"></i></span></div>').appendTo($(BoxReview)); 
+                }
+        }
+        
+     
+                       
+    $(up).on("click",function(){
+        $('.modal-upreview').addClass('show');
+        var cont =  document.querySelector('.up-name-data');
+            cont.innerHTML = name;
+        
+        document.querySelector('#UpvoteForm').addEventListener("submit", function(){
+            upReviewSubmit()
+        })
+           function upReviewSubmit(){
+            let data = {
+                UpReview : $('#up-review-data').val(),
+                UpUserName : $('#name-upreview-data').val(),
+                UpUserEmail : $('#email-upreview-data').val(),       
+            }
+            $('.modal-upreview').addClass('hide');
+            $('.modal-upreview').removeClass('show');
+            ref1.push(data)
+            document.getElementById('UpvoteForm').reset();
+         }
+      
+    })
+    $(down).on("click",function(){
+        $('.modal-downreview').addClass('show');
+        var cont =  document.querySelector('.down-name-data');
+        cont.innerHTML = name;          
+        
+        document.querySelector('#DownvoteForm').addEventListener("submit", function(){
+            downReviewSubmit()
+        })
+         function downReviewSubmit(){
+            let data = {
+                DownReview : $('#down-review-data').val(),
+                DownUserName : $('#name-downreview-data').val(),
+                DownUserEmail : $('#email-downreview-data').val(),       
+            }
+            $('.modal-downreview').addClass('hide');
+            $('.modal-downreview').removeClass('show');
+            ref2.push(data)
+            document.getElementById('DownvoteForm').reset(); 
+         }                  
+    })
+      
+     //show more details about CS//
+     $(this).click(function(){
+         $('.Addcoffee-shop').addClass('hide');
+         $(this).removeClass('hide');
+         $(GM).removeClass('hide');
+         $(BoxReview).removeClass('hide');
+
+         $('.Addcoffee-shop').hover(function(){
+             $(this).css("background-color", "transparent");
+         })
+
+         $('.Show_AllCS').removeClass('hide');
+         $('.Show_AllCS').click(function(){
+            location.reload();
+        })
+
+     })
+   
+});
+}
 
 /*-----------------------------------------------------------------------------------------------------------------------*/ 
-  
+
 
 
