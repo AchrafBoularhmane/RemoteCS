@@ -19,7 +19,7 @@
      <h1 class="title-page">Best Coffee Shops  </h1>
          <div class="form-group">
           <span class="title-page in"> In</span>
-          <select class="form-control" id="city-data">
+          <select class="form-control form" id="city-data">
             <option class="option" selected>Casablanca</option>
           </select>
      </div>
@@ -27,25 +27,22 @@
                                           <!--FILTER-->
   <div class="filter">
     <h2 class="filter-title display">Filter by : </h2>
-
   <div class="form-group display">
-    <select class="form-control" id="Price">
+    <select class="form-control form" id="Price">
              <option disabled selected hidden >Price</option>
              <option  value="Low" class="filter-Option">Low</option>
              <option  value="Average" class="filter-Option">Average</option>
              <option  value="High" class="filter-Option">High</option>
     </select>
   </div>
-
   <div class="form-group display">
-    <select class="form-control" id="Sockets">
+    <select class="form-control form" id="Sockets">
       <option  disabled selected hidden >Sockets</option>
              <option  value="Low" class="filter-Option">Low</option>
              <option  value="Average" class="filter-Option">Average</option>
              <option  value="High" class="filter-Option">High</option>
     </select>
   </div>
-
   <button type="button" class="btn btn-outline-dark" id="AddNewCSbtn">Add new</button>       
 </div>
 </div>
@@ -56,67 +53,73 @@
   <h2>Add a New Coffee </h2>
   <button id="close"><i class="fa fa-times"></i></button>
   <form id="AddNewCoffeeShopForm" name="form">
-      <div class="form-group">
-        <label for="">Coffee Name:</label>
-        <input type="text"class="form-control" id="coffee-name-data"name="Csname" minlength="2">
-        <p class="error-CSname hide"> Required and alphabates only <i class="fa fa-exclamation-triangle"></i></p>
-      </div>
-      <div class="form-group">
-        <label for="">City:</label>
-        <select class="form-control" id="city-data">
-          <option >Casablanca</option>
-        </select>
-      </div>
-      <div class="form-group">
-          <label for="">Google Maps Link:</label>
+    <div class="c">
+      <div class="a">
+        <div class="form-group group ">
+          <label for="">Coffee Name :</label>
+          <input type="text"class="form-control" id="coffee-name-data"name="Csname" minlength="2">
+          <p class="error-CSname hide"> Required and alphabates only <i class="fa fa-exclamation-triangle"></i></p>
+        </div>
+        <div class="form-group group ">
+          <label for="">Google Maps Link :</label>
           <input type="url"  class="form-control" id="G-M-Link-data" name="Mapslink" required>
           <p class="error-GM hide"> Required. Must be a valid link <i class="fa fa-exclamation-triangle"></i></p>
-
       </div>
-      <div class="form-group">
-          <label for="">Price:</label>
-          <select class="form-control" id="price-data">
-            <option>Low</option>
-            <option>Average</option>
-            <option>Hight</option>
-          </select>
-      </div>
-      <div class="form-group">
-          <label for="">None Smoking Area :</label>
-          <select class="form-control modal-input" id="NSA-data">
-            <option>Yes</option>
-            <option>No</option>
+        <div class="form-group group ">
+          <label for="">City :</label>
+          <select class="form-control" id="city-data">
+            <option >Casablanca</option>
           </select>
         </div>
-        <div class="form-group">
-          <label for="">Sockets:</label>
+        <div class="form-group group ">
+            <label for="">Price :</label>
+            <select class="form-control" id="price-data">
+              <option>Low</option>
+              <option>Average</option>
+              <option>High</option>
+            </select>
+        </div>
+        <div class="form-group group ">
+            <label for="">Non Smoking Area :</label>
+            <select class="form-control modal-input" id="NSA-data">
+              <option>Yes</option>
+              <option>No</option>
+            </select>
+          </div>
+      </div>
+      <div class="b">
+        <div class="form-group group">
+          <label for="">Sockets :</label>
           <select class="form-control modal-input" id="sockets-data">
             <option>Low</option>
             <option>Average</option>
-            <option>Hight</option>
+            <option>High</option>
           </select>
       </div>
-      <div class="form-group">
-          <label for="">Noise:</label>
+      <div class="form-group group">
+          <label for="">Noise :</label>
           <select class="form-control" id="noise-data">
             <option>Low</option>
             <option>Average</option>
-            <option>Hight</option>
+            <option>High</option>
           </select>
       </div>
-      <div class="form-group">
-          <label for="">Your Name:</label>
+      <div class="form-group group">
+          <label for="">Your Name :</label>
           <input type="text" class="form-control" id="name-data"  name="UserName" required minlength="2">
           <p class="error-name hide"> Required and alphabates only <i class="fa fa-exclamation-triangle"></i></p>
-
+  
       </div>
-      <div class="form-group">
-          <label for="">Your  Email:</label>
+      <div class="form-group group">
+          <label for="">Your  Email :</label>
           <input type="email" class="form-control" id="email-data"  name="Useremail" required>
           <p class="error-email hide"> Required. Must be a valid email <i class="fa fa-exclamation-triangle"></i></p>
-
+  
         </div>
         <button type="submit" class="btn-sm btn-danger" id="CSformSubmit">Confirm</button>
+      </div>
+
+    </div>
     </form>
   </div>
 </div>
@@ -135,11 +138,11 @@
 <div class="container"> 
   <div class="modal-upreview">
 <div class="UpReveiw_form">
-  <h2 class="UpReveiw_title">You are <span class="green">upvoting</span>: <span class="up-name-data"></span> </h2>
+  <h2 class="UpReveiw_title">You are <span class="green">upvoting</span> <span class="up-name-data"></span> </h2>
   <button id="close-up-review"><i class="fa fa-times"></i></button>
   <form id="UpvoteForm" name="form1">
       <div class="form-group">
-        <label for="" class="label">Please include a review for others:</label>
+        <label for="" class="label">Please include a review for others :</label>
         <textarea type="text"class="form-control" id="up-review-data"name="up-review" minlength="2" placeholder="Your review"></textarea>
         <p class="error-Upvote hide"> Required and alphabates only <i class="fa fa-exclamation-triangle"></i></p>
       </div>
@@ -150,7 +153,7 @@
 
       </div>
       <div class="form-group">
-          <label for="" class="label">Your  Email:</label>
+          <label for="" class="label">Your  Email :</label>
           <input type="email" class="form-control" id="email-upreview-data"  name="Useremail" required placeholder="Your Email">
           <p class="error-email hide"> Required. Must be a valid email <i class="fa fa-exclamation-triangle"></i></p>
         </div>

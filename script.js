@@ -127,6 +127,7 @@ function gotData(data){
                 //Create divs for data// 
 
              var AddcoffeeShop = jQuery('<div/>', {"class": 'Addcoffee-shop'}).appendTo('#All-CS'),
+                Signe =  jQuery('<div class="Signe"><span class="Signe-up"><i class="fa fa-caret-up"></i></span><div/>').appendTo($(AddcoffeeShop)),
                  CS =  jQuery('<div/>', {"class": 'CS'}).appendTo($(AddcoffeeShop)),
                  NameAndNote =  jQuery('<div/>', {"class": 'Name-Note'}).appendTo($(CS)),
                  Name =  jQuery('<div/>', {"class": 'Name-div'}).appendTo($(NameAndNote)),
@@ -138,9 +139,9 @@ function gotData(data){
                  Sockets = jQuery('<div/>',{"class":'Sockets'}).appendTo($(PriceAndSockets)),
                  NSAndNoise = jQuery('<div/>',{"class":'NS-Noise flex '}).appendTo($(CS)),
                  NS = jQuery('<div/>',{"class":'NS'}).appendTo($(NSAndNoise)),
-                 Noise = jQuery('<div/>',{"class":'Noise'}).appendTo($(NSAndNoise)),
+                 Noise = jQuery('<div/>',{"class":'Noise hide'}).appendTo($(NSAndNoise)),
                  Vote = jQuery('<div/>',{"class":'Vote'}).appendTo($(CS)),
-                 VoteDesc = jQuery('<span>Vote : <span/>',{"class":'desc display'}).appendTo($(Vote)),
+                 VoteDesc = jQuery('<span>Votes : <span/>',{"class":'desc display'}).appendTo($(Vote)),
                  UpVote = jQuery('<div/>',{"class":'Up_Vote display',}).appendTo($(Vote)),
                  UpLogo = jQuery('<div/>',{"class":'Up_logo'}).appendTo($(UpVote)),
                  DownVote = jQuery('<div/>',{"class":'Down_Vote display'}).appendTo($(Vote)),
@@ -154,8 +155,8 @@ function gotData(data){
                  jQuery('<p>Noise : <span class ="Noise-Value">' + NoiseValue +'</span></p>').appendTo($(Noise));
                  jQuery('<p>Non-Smoking : <span class ="NS-Value">' + NSareaValue +'</span></p>').appendTo($(NS));
                  jQuery('<button type="submit" class="btn-sm btn-success">NOTE / 10</button>').appendTo($(Note));
-                 jQuery('<span class ="red" style="margin-right: 5px;"><span class="down-note"></span> <i class="fa fa-caret-down"></i></span>').appendTo($(DownVote));
-                 jQuery('<span class ="green" style="margin-right: 5px;"><span class="up-note"></span> <i class="fa fa-caret-up"></i></span>').appendTo($(UpVote));
+                 jQuery('<span class ="red" style="margin-right: 5px;"><span class="down-note">0</span> <i class="fa fa-caret-down"></i></span>').appendTo($(DownVote));
+                 jQuery('<span class ="green" style="margin-right: 5px;"><span class="up-note">0</span> <i class="fa fa-caret-up"></i></span>').appendTo($(UpVote));
                  jQuery('<span class = "GMLink">Link to Maps<span/>').appendTo($(Link)); 
 
                  // Value Color //
@@ -187,8 +188,8 @@ function gotData(data){
                     } else NoiseValue.classList.add("yellow");
                   });
                   NS.forEach(function(NS) {
-                    if(NS.innerHTML==='yes'){
-                       NS.classList.add("Green");
+                    if(NS.innerHTML==='Yes'){
+                       NS.classList.add("green");
                     } else NS.classList.add("red");
                   });              
     }
@@ -202,10 +203,11 @@ function gotData(data){
         down = $(this).find(".Down_Vote"),
         CS = $(this).find(".CS"),
         GM = $(this).find(".GM-Link"),
+        Noise = $(this).find(".Noise"),
         UpNote = $(this).find(".up-note"),
         DownNote = $(this).find(".down-note"),
         BoxReview = jQuery('<div/>',{"class":'Box-Review hide'}).appendTo($(CS)),
-        BoxReviewTitle = jQuery('<h3>Votes :<h3/>',{"class":'Box-Review-title'}).appendTo($(BoxReview)); 
+        BoxReviewTitle = jQuery('<h3>Reviews :<h3/>',{"class":'Box-Review-title'}).appendTo($(BoxReview)); 
 
         let ref1 = database.ref(name + " " + "Up Review Added");
         let ref2 = database.ref(name + " " + "Down Review Added");
@@ -288,6 +290,7 @@ function gotData(data){
          $('.Addcoffee-shop').addClass('hide');
          $(this).removeClass('hide');
          $(GM).removeClass('hide');
+         $(Noise).removeClass('hide');
          $(BoxReview).removeClass('hide');
 
          $('.Addcoffee-shop').hover(function(){
